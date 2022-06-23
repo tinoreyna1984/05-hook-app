@@ -5,16 +5,14 @@ import { TodoList } from "./TodoList";
 import { todoReducer } from "./todoReducer";
 
 export const TodoApp = () => {
-  const { todos, handleAddTodo, onDeleteTodo, onToggleTodo } = useTodos(todoReducer);
+  const { todos, pending, handleAddTodo, onDeleteTodo, onToggleTodo } = useTodos(todoReducer);
 
-  const pendientes = todos.filter((todo) => !todo.done);
-  
   return (
     <>
       <h1>TodoApp</h1>
       <hr />
       <h4>Total: {todos.length}</h4>
-      <h4>Pendientes: {pendientes.length}</h4>
+      <h4>Pendientes: {pending.length}</h4>
       <hr />
       <div className="row">
         <div className="col-7">

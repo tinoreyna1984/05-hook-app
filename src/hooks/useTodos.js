@@ -24,5 +24,7 @@ export function useTodos(todoReducer) {
     dispatch({ type: "TOGGLE_TODO", payload: id });
   };
 
-  return { todos, handleAddTodo, onDeleteTodo, onToggleTodo };
+  const pending = todos.filter((todo) => !todo.done);
+
+  return { todos, pending, handleAddTodo, onDeleteTodo, onToggleTodo };
 }
